@@ -6,20 +6,20 @@ public class Cart {
 
     private Integer id;
 
-    private UserData userData;
+    private String fiscalCode;
 
-    private List<Product> products;
+    private Integer productId;
 
 
     public Cart() {
 
     }
 
-
-    public Cart(UserData userData, List<Product> products) {
-        this.userData = userData;
-        this.products = products;
+    public Cart(String fiscalCode, Integer productId) {
+        this.fiscalCode = fiscalCode;
+        this.productId = productId;
     }
+
 
     public Integer getId() {
         return id;
@@ -29,19 +29,19 @@ public class Cart {
         this.id = id;
     }
 
-    public UserData getUserData() {
-        return userData;
+    public String getFiscalCode() {
+        return fiscalCode;
     }
 
-    public void setUserData(UserData userData) {
-        this.userData = userData;
+    public void setFiscalCode(String fiscalCode) {
+        this.fiscalCode = fiscalCode;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 }

@@ -36,12 +36,8 @@ public class FavouritesServiceImpl implements FavouritesService{
     public FavouritesDto addFavourite(Integer productId, String fiscalCode) throws ResultQueryException, FavouritesException {
 
         Product product = productRepository.getProductDetailsByProductId(productId).orElseThrow(() -> new ResultQueryException("Nessun prodotto trovato con id: " + productId));
+        UserData userData = userDataRepository.getUserDetailsByFiscalCode(fiscalCode).orElseThrow(() -> new ResultQueryException("Nessun utente trovato con codice fiscale: " + fiscalCode));
 
-
-        UserData userData = userDataRepository.getUserDetailsByFiscalCode(fiscalCode);
-        if(userData == null) {
-           throw  new ResultQueryException("Nessun utente trovato con codice fiscale: " + fiscalCode);
-        }
 
         Favourites favouritesThrow = favouritesRepository.findByProductIdAndUser(productId, fiscalCode);
         if(favouritesThrow != null) {
@@ -65,7 +61,7 @@ public class FavouritesServiceImpl implements FavouritesService{
 
         List<Favourites> favouritesList = favouritesRepository.findAllFavouritesByUser(fiscalCode);
 
-        if(favouritesList == null) {
+        if(favouritesList.isEmpty()) {
             throw new FavouritesException("Non ci sono preferiti salvati!");
         }
         return favouritesMapper.toFavouritesDtoList(favouritesList);

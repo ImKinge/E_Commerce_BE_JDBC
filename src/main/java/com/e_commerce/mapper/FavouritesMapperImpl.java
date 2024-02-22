@@ -33,7 +33,7 @@ public class FavouritesMapperImpl implements FavouritesMapper {
 
         FavouritesDto favouritesDto = new FavouritesDto();
 
-        UserData fiscalCode = userDataRepository.getUserDetailsByFiscalCode(favourites.getFiscalCode());
+        UserData fiscalCode = userDataRepository.getUserDetailsByFiscalCode(favourites.getFiscalCode()).orElseThrow(() -> new ResultQueryException("Nessun utente trovato con codice fiscale: " + favourites.getFiscalCode()));
         Product product = productRepository.getProductDetailsByProductId(favourites.getProductId()).orElseThrow(() -> new ResultQueryException("Nessun prodotto trovato con id: " + favourites.getProductId()));
 
         favouritesDto.setId(favourites.getId());

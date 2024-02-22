@@ -21,7 +21,7 @@ public class FavouritesRepositoryImpl implements FavouritesRepository{
     @Value("${database.schema}")
     private String databaseSchema;
 
-    private String table = "favourites";
+    private final String table = "favourites";
 
     @Override
     public void saveFavourites(Favourites favourites) {

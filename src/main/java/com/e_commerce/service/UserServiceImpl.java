@@ -23,11 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDataDto getUserDetailsByFiscalCode(String fiscalCode) throws ResultQueryException {
 
-        UserData userData = userDataRepository.getUserDetailsByFiscalCode(fiscalCode);
-
-        if(userData == null) {
-            throw new ResultQueryException("Nessun utente trovato con codice fiscale: " + fiscalCode);
-        }
+        UserData userData = userDataRepository.getUserDetailsByFiscalCode(fiscalCode).orElseThrow(() -> new ResultQueryException("Nessun utente trovato con codice fiscale: " + fiscalCode));
 
         return userMapper.toUserDto(userData);
     }

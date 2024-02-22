@@ -47,7 +47,6 @@ public class JwtAuthenticationController  {
             if(!passwordCheck) {
                 throw new ResultQueryException("Password Errata");
             }
-
             String fiscalCode = userDto.getFiscalCode();
 
             Authentication authentication = authenticationManager.authenticate(
@@ -60,6 +59,7 @@ public class JwtAuthenticationController  {
             AuthResponseDto authResponseDto = new AuthResponseDto(token);
 
             return new ResponseEntity<>(new ResponseDto<>(authResponseDto, true), HttpStatus.OK);
+
         } catch (ResultQueryException ex) {
             return new ResponseEntity<>(new ResponseDto<>(ex.getMessage(), false), HttpStatus.BAD_REQUEST);
         }

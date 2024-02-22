@@ -26,7 +26,7 @@ public class UserDataRepositoryImpl implements UserDataRepository{
     private String table = "user";
 
     @Override
-    public UserData getUserDetailsByFiscalCode(String fiscalCode) {
+    public Optional<UserData> getUserDetailsByFiscalCode(String fiscalCode) {
 
         logger.info("Get userData details");
 
@@ -34,11 +34,7 @@ public class UserDataRepositoryImpl implements UserDataRepository{
 
         List<UserData> userDataList = jdbcTemplate.query(sql, new UserDataRowMapper(), fiscalCode);
 
-        if(userDataList.isEmpty()) {
-            return null;
-        } else {
-           return userDataList.get(0);
-        }
+        return userDataList.stream().findFirst();
 
     }
 
