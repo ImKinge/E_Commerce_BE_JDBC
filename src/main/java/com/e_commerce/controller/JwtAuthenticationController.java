@@ -37,7 +37,7 @@ public class JwtAuthenticationController  {
     public ResponseEntity<?> login(@RequestBody JwtRequest jwtRequest) {
 
         try{
-            UserDataDto userDto = userService.findUserByUsername(jwtRequest.getUsername());
+            UserDto userDto = userService.findUserByUsername(jwtRequest.getUsername());
 
             /*
             Qui andiamo a confrontare se la password encodata salvata sul db

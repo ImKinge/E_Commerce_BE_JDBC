@@ -45,4 +45,12 @@ public class CartRepositoryImpl implements CartRepository{
         jdbcTemplate.update(sql, productId);
 
     }
+
+    @Override
+    public void deleteAllByUser(String fiscalCode) {
+
+        String sql = "DELETE FROM " + databaseSchema + "." + table + " WHERE user_data_fiscal_code = ?";
+
+        jdbcTemplate.update(sql, fiscalCode);
+    }
 }

@@ -2,7 +2,6 @@ package com.e_commerce.service;
 
 import com.e_commerce.dto.CartDto;
 import com.e_commerce.exception.CartException;
-import com.e_commerce.exception.FavouritesException;
 import com.e_commerce.exception.ResultQueryException;
 import com.e_commerce.mapper.CartMapper;
 import com.e_commerce.model.Cart;

@@ -2,7 +2,7 @@ package com.e_commerce.dto;
 
 import java.time.LocalDate;
 
-public class UserDataDto {
+public class UserDto {
 
     private String fiscalCode;
 
@@ -23,11 +23,11 @@ public class UserDataDto {
     private String password;
 
 
-    public UserDataDto () {
+    public UserDto() {
 
     }
 
-    public UserDataDto(String fiscalCode, String name, String surname, LocalDate dateOfBirth, String email, Long infoPhone, String address, String username, String password) {
+    public UserDto(String fiscalCode, String name, String surname, LocalDate dateOfBirth, String email, Long infoPhone, String address, String username, String password) {
         this.fiscalCode = fiscalCode;
         this.name = name;
         this.surname = surname;

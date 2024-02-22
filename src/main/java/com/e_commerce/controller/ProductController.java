@@ -2,7 +2,6 @@ package com.e_commerce.controller;
 
 import com.e_commerce.dto.ProductDto;
 import com.e_commerce.dto.ResponseDto;
-import com.e_commerce.dto.UserDataDto;
 import com.e_commerce.exception.ResultQueryException;
 import com.e_commerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

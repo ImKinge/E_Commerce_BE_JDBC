@@ -1,13 +1,12 @@
 package com.e_commerce.service;
 
-import com.e_commerce.dto.UserDataDto;
+import com.e_commerce.dto.UserDto;
 import com.e_commerce.exception.ResultQueryException;
 import com.e_commerce.mapper.UserMapper;
 
 import com.e_commerce.model.UserData;
 import com.e_commerce.repository.UserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 
@@ -21,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public UserDataDto getUserDetailsByFiscalCode(String fiscalCode) throws ResultQueryException {
+    public UserDto getUserDetailsByFiscalCode(String fiscalCode) throws ResultQueryException {
 
         UserData userData = userDataRepository.getUserDetailsByFiscalCode(fiscalCode).orElseThrow(() -> new ResultQueryException("Nessun utente trovato con codice fiscale: " + fiscalCode));
 
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDataDto findUserByUsername(String username) throws ResultQueryException {
+    public UserDto findUserByUsername(String username) throws ResultQueryException {
 
         UserData userData = userDataRepository.findByUsername(username).orElseThrow(() -> new ResultQueryException("Nessun utente trovato con username: " + username));
 

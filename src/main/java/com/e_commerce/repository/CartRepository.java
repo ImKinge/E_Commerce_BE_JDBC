@@ -11,4 +11,6 @@ public interface CartRepository {
     List<Cart> findAllProductByUser (String fiscalCode);
 
     void removeToCart (Integer productId);
+
+    void deleteAllByUser (String fiscalCode);
 }

@@ -1,6 +1,6 @@
 package com.e_commerce.mapper;
 
-import com.e_commerce.dto.UserDataDto;
+import com.e_commerce.dto.UserDto;
 import com.e_commerce.model.UserData;
 import org.springframework.stereotype.Component;
 
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 public class UserMapperImpl implements UserMapper{
 
     @Override
-    public UserDataDto toUserDto(UserData userData) {
+    public UserDto toUserDto(UserData userData) {
 
         if(userData == null) {
             return null;
         }
 
-        UserDataDto userDto = new UserDataDto();
+        UserDto userDto = new UserDto();
 
         userDto.setFiscalCode(userData.getFiscalCode());
         userDto.setAddress(userData.getAddress());
